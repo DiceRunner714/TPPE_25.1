@@ -1,0 +1,53 @@
+Classe Empresa
+- nome: String
+- filiais: List<Biblioteca>
++ adicionarBiblioteca()
++ removerBiblioteca()
++ buscarBiblioteca()
++ atualizarBiblioteca()
+
+Classe Biblioteca (implements LeitorAcervo)
+- nome: String
+- local: String
+- id: int
+- itens: List<Item>
++ adicionarItem()
++ removerItem()
++ buscarItem()
++ listarItens()
++ listarItensBaixoEstoque()
+
+Interface LeitorAcervo
++ buscarItemPorId(id: int): Item
++ buscarItensPorNome(nome: String): List<Item>
++ getEstoque(): List<Item>
+
+Classe abstrata Item
+- nome: String
+- categoria: String
+- quantidade: int
+- id: int
+- valor: double
+- restrito: boolean
++ restringir()
++ liberar()
++ atualizar()
++ isRestrito(): boolean
++ listarInfoBasica(): String
+
+Classes filhas de Item:
+→ Livro
+- autor: String
+- isbn: String
+- numPaginas: int
+
+→ Revista
+- edicao: String
+- periodicidade: String
+
+→ DVD
+- duracao: String
+- censura: int
+
+Exceção:
+→ NivelRestricaoInadequadoException
